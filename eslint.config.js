@@ -17,16 +17,7 @@ const compat = new FlatCompat({
 
 export default [
   {
-    ignores: [
-      'coverage/',
-      'public/',
-      'node_modules/',
-      'vite.config.ts',
-      'eslint.config.js',
-      'tsconfig.json',
-      'tsconfig.app.json',
-      'tsconfig.node.json'
-    ]
+    ignores: ['coverage/', 'public/', 'node_modules/']
   },
   {
     files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
