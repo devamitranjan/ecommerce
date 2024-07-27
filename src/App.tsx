@@ -1,15 +1,18 @@
 import React from 'react';
 
-import { DashboardPage } from './page/dashboard';
+const DashboardPage = React.lazy(
+  () => import('./page/dashboard/dashboard-page')
+);
+const Login = React.lazy(() => import('./components/login/login'));
+const SignUp = React.lazy(() => import('./components/sign-up/sign-up'));
 import { Modal, ModalProvider } from './shared/modal';
 import { AppLayout } from './layouts/app-layout';
-import { Login } from './components/login';
-import { SignUp } from './components/sign-up';
 
 function App() {
   const [currentPath, setCurrentPath] = React.useState(
     window.location.pathname
   );
+  console.log(currentPath);
 
   React.useEffect(() => {
     const onLocationChange = () => {
@@ -25,8 +28,9 @@ function App() {
 
   let screen = null;
   let showLoginAsset = false;
-  switch (currentPath) {
+  switch (currentPath.replace(/\/+$/, '')) {
     case '/login':
+    case '':
       screen = <Login />;
       showLoginAsset = true;
       break;
@@ -40,7 +44,11 @@ function App() {
 
   return (
     <ModalProvider>
-      <AppLayout showLoginAsset={showLoginAsset}>{screen}</AppLayout>
+      <AppLayout showLoginAsset={showLoginAsset}>
+        <React.Suspense fallback={<div>Loading...</div>}>
+          {screen}
+        </React.Suspense>
+      </AppLayout>
       <Modal />
     </ModalProvider>
   );
