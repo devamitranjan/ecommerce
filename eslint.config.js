@@ -51,7 +51,19 @@ export default [
       'import/no-mutable-exports': 'off', // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-mutable-exports.md#importno-mutable-exports
       'import/newline-after-import': 'off', // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/newline-after-import.md
       '@typescript-eslint/comma-dangle': 'off',
-      'react/react-in-jsx-scope': 'off'
+      'react/react-in-jsx-scope': 'off',
+      'react/function-component-definition': 'off',
+      'jsx-a11y/label-has-associated-control': [
+        2,
+        {
+          assert: 'htmlFor'
+        }
+      ],
+      'import/prefer-default-export': 'off',
+      'react/prop-types': 'off',
+      'jsx-a11y/no-static-element-interactions': 'off',
+      'jsx-a11y/click-events-have-key-events': 'off',
+      'import/no-cycle': 'off'
     }
   }
 ];

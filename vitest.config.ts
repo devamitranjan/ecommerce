@@ -10,6 +10,18 @@ export default defineConfig({
   test: {
     globals: true,
     environment: 'jsdom',
-    setupFiles: ['./setupTests.ts']
+    setupFiles: ['./setupTests.ts'],
+    coverage: {
+      exclude: [
+        'eslint.config.js',
+        'postcss.config.js',
+        'tailwind.config.js',
+        'vite.config.ts',
+        'vitest.config.ts',
+        'src/main.tsx',
+        'node_modules',
+        'dist'
+      ]
+    }
   }
 });

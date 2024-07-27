@@ -9,5 +9,5 @@
     "strict": true,
     "jsx": "react"
   },
-  "include": ["vite.config.ts", "eslint.config.js"]
+  "include": ["vite.config.ts", "eslint.config.js", "tailwind.config.js"]
 }
